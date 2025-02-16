@@ -1,15 +1,16 @@
-import React, { FC } from 'react';
-import { useFormStore } from './store/form.store';
+import React, { FC } from "react";
+import { useFormStore } from "./store/form.store";
 
-interface FormOutputProps { }
+interface FormOutputProps {}
 
 const FormOutput: FC<FormOutputProps> = () => {
+  const formData = useFormStore((store) => store.formData);
 
-    const formData = useFormStore(store => store.formData)
-
-    return <div>
-        <pre>{JSON.stringify(formData, null, 2)}</pre>
+  return (
+    <div>
+      <pre>{JSON.stringify(formData, null, 2)}</pre>
     </div>
-}
+  );
+};
 
 export default FormOutput;
